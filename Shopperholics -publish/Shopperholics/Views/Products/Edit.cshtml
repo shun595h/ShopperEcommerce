@@ -1,0 +1,70 @@
+﻿@model Shopperholics.Models.Products
+@using Shopperholics.Models
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <h1 class="title">Edit the product</h1>
+    <form method="post" enctype="multipart/form-data" asp-action="Edit">
+        <div asp-validation-summary="ModelOnly"></div>
+        <input type="hidden" asp-for="id" />
+        <div class="form-field">
+            <label asp-for="vendor"></label>
+            <select asp-for="VendorId" asp-items="ViewBag.VendorId">
+                <option selected="selected" value="">Select</option>
+            </select>
+            <span asp-validation-for="VendorId"></span>
+        </div>
+        <div class="form-field">
+            <label asp-for="CategoryId"></label>
+
+            <select asp-for="CategoryId" asp-items="ViewBag.ProductcatID">
+                <option selected="selected" value="">Select</option>
+            </select>
+            <span asp-validation-for="CategoryId"></span>
+        </div>
+        <div class="form-field">
+            <label asp-for="subCategoryId"></label>
+            <select asp-for="subCategoryId" asp-items="ViewBag.ProductsubcatID">
+                <option selected="selected" value="">Select</option>
+            </select>
+            <span asp-validation-for="subCategoryId"></span>
+        </div>
+        <div class="form-field">
+            <label asp-for="ProductType"></label>
+            <select asp-for="ProductType" asp-items="Html.GetEnumSelectList<productType>()">
+                <option selected="selected" value="">Select</option>
+            </select>
+            <span asp-validation-for="ProductType"></span>
+        </div>
+        <div class="form-field">
+            <label asp-for="Description"></label>
+            <textarea asp-for="Description"></textarea>
+            <span asp-validation-for="Description"></span>
+        </div>
+
+        <div class="form-field">
+            <label asp-for="Price"></label>
+            <input asp-for="Price" />
+            <span asp-validation-for="Price"></span>
+        </div>
+        <div class="form-field">
+            <label asp-for="ProductPhoto"></label>
+            <input asp-for="ProductPhoto" type="file" />
+            <span asp-validation-for="ProductPhoto"></span>
+        </div>
+        <img src="@Url.Action("GetImage", "Products", new { id = Model.id })" />
+        <div>
+            <input type="hidden" asp-for="ImageMimeType" />
+            <input type="hidden" asp-for="ImageName" />
+            @Html.HiddenFor(c => c.ProductPhoto)
+            @Html.HiddenFor(c => c.ProductPhoto)
+        </div>
+        <div class="form-field">
+            <input type="submit" value="Save" />
+        </div>
+    </form>
+</div>

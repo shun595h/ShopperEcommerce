@@ -1,0 +1,54 @@
+﻿@model Shopperholics.Models.SessionStateViewModel
+@using Microsoft.AspNetCore.Http;
+
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    ViewData["Title"] = "Shopping cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>My cart</h1>
+@if (Model != null)
+{
+    <h2 class="title">Your Selected Products</h2>
+    <div class="text-center">
+        @foreach (var item in Model.SelectedProducts)
+        {
+            <div class="item">
+                <h3>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </h3>
+                @if (item.ImageName != null)
+                {
+                    <div>
+                        <img src="@Url.Action("GetImage", "ShoppingCart", new { id = item.id })" />
+                    </div>}
+                <div>
+                    <p>
+                        @Html.DisplayFor(model => item.Description)
+                    </p>
+                    <p>
+                        @Html.DisplayFor(model => item.Price)
+                    </p>
+                </div>
+                <div>
+
+                    <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                </div>
+            </div>}
+    </div>
+    <div>
+        <p>Total price:</p>@HttpContextAccessor.HttpContext.Session.GetString("totalprice")
+        <button type="button" onclick="location.href='@Url.Action("Checkout", "ShoppingCart")'">Checkout</button>
+        <button type="button" onclick="location.href='@Url.Action("Clear", "ShoppingCart")'">Clear</button>
+
+    </div>
+}
+else
+{
+    <div class="title Secondary-heading">
+        <p>Sorry, we don't have any information yet</p>
+        <p>Please go to the <span class="span-col-s">Shopping List page</span></p>
+        <p>and select the wanted products.</p>
+    </div>
+}

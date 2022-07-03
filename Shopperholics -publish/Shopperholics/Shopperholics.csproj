@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>8d1d05bb-ffdc-4eee-94f3-e4bdb5526abc</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20211128055300_InitialCreate.cs" />
+    <Compile Remove="Migrations\20211128055300_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20211128055926_InitialCreate.cs" />
+    <Compile Remove="Migrations\20211128055926_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20211128060033_InitialCreate.cs" />
+    <Compile Remove="Migrations\20211128060033_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20211128110101_IntialCreate.cs" />
+    <Compile Remove="Migrations\20211128110101_IntialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20211128144131_InitialCreate.cs" />
+    <Compile Remove="Migrations\20211128144131_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20211128145816_InitialCreate.cs" />
+    <Compile Remove="Migrations\20211128145816_InitialCreate.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.3.0" />
+    <PackageReference Include="Azure.Storage.Files.Shares" Version="12.1.0" />
+    <PackageReference Include="Azure.Storage.Queues" Version="12.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.21" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.21" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.21" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.21">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Azure" Version="1.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+	 <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.0" />
+    <PackageReference Include="WindowsAzure.Storage" Version="3.1.0" />
+  </ItemGroup>
+
+</Project>

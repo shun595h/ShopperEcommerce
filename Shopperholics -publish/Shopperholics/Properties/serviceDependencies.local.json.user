@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "storage1": {
+      "restored": true,
+      "restoreTime": "2021-11-28T19:52:57.1274549Z"
+    },
+    "secrets1": {
+      "restored": true,
+      "restoreTime": "2021-11-28T19:52:42.5604505Z"
+    }
+  },
+  "parameters": {
+    "storage1.resourceGroupName": {
+      "Name": "storage1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "Shopp"
+    },
+    "storage1.subscriptionId": {
+      "Name": "storage1.subscriptionId",
+      "Type": "subscription",
+      "Value": "dc209dd6-3285-4344-aef0-d5e45c81b144"
+    }
+  }
+}

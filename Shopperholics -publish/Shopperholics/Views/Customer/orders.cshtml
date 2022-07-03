@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Shopperholics.Models.Products>
+@{
+    ViewData["Title"] = "orders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>My Orders</h1>
+
+<div class="text-center">
+    @foreach (var item in Model)
+    {
+
+        <div class="item">
+            <form method="post" enctype="multipart/form-data" asp-action="AddToShoppingList">
+
+                <h3>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </h3>
+
+                @if (item.ImageName != null)
+                {
+                    <div>
+                        <a asp-action="Details" asp-route-id="@item.id"><img src="@Url.Action("GetImage", "Products", new { id = item.id })" /></a>
+                    </div>}
+                <input name="id" type="hidden" class="form-control" value="@item.id">
+                <input name="ProductName" type="hidden" class="form-control" value="@item.ProductName">
+                <input name="Description" type="hidden" class="form-control" value="@item.Description">
+                <input name="Price" type="hidden" class="form-control" value="@item.Price">
+
+
+                <div>
+                    <p>
+                        @Html.DisplayFor(model => item.Description)
+                    </p>
+                    <p>
+                        @Html.DisplayFor(model => item.Price)
+                    </p>
+                </div>
+                
+                <div>
+                  
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.id">Edit |</a>
+                        <a asp-action="Details" asp-route-id="@item.id">Details |</a>
+                        <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                    }
+
+
+                </div>
+            </form>
+        </div>
+
+    }
+</div>

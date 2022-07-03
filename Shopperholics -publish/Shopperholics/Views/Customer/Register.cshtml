@@ -1,0 +1,86 @@
+﻿@model Shopperholics.ViewModels.RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Register</h1>
+
+<div class="row justify-content-center">
+    <div class="col-5">
+        <form class="submit-form" method="post" enctype="multipart/form-data" asp-action="Register">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="form-group row">
+                <label asp-for="firstname" class="col-sm-4 col-form-label"></label>
+                <div class="col-sm-6">
+                    <input asp-for="firstname" type="text" class="form-control" placeholder="First Name" required>
+                    <span asp-validation-for="firstname"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="LastName" class="col-sm-4 col-form-label"></label>
+                <div class="col-sm-6">
+                    <input asp-for="LastName" type="text" class="form-control" placeholder="Last Name" required>
+                    <span asp-validation-for="LastName"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="phoneno" class="col-sm-4 col-form-label"></label>
+                <div class="col-sm-6">
+                    <input asp-for="phoneno" type="tel" class="form-control" placeholder="Phone Number" required>
+                    <span asp-validation-for="phoneno"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Address" class="col-sm-4 col-form-label"></label>
+                <div class="col-sm-6">
+                    <input asp-for="Address" type="tel" class="form-control" placeholder="Your Address" required>
+                    <span asp-validation-for="Address"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="loginemail" class="col-sm-4 col-form-label"></label>
+                <div class="col-sm-6">
+                    <input asp-for="loginemail" type="email" class="form-control" placeholder="Email" required>
+                    <span asp-validation-for="loginemail"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="UserName" class="col-sm-4 col-form-label"></label>
+                <div class="col-sm-6">
+                    <input asp-for="UserName" type="tel" class="form-control" placeholder="User Name" required>
+                    <span asp-validation-for="UserName"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Password" class="col-sm-4 col-form-label"></label>
+                <div class="col-sm-6">
+                    <input asp-for="Password" type="password" class="form-control" placeholder="Password" required>
+                    <span asp-validation-for="Password"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="RoleName" class="col-sm-4 col-form-label"></label>
+                <div class="col-sm-6">
+                    <select asp-for="RoleName" class="form-control">
+                        <option selected>Member</option>
+                        <option>Administrator</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-success">
+                        Register
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script src="~/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+}
